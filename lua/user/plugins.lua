@@ -801,9 +801,9 @@ M.config = function()
 		},
 		{
 			"andrewferrier/wrapping.nvim",
-			config = function()
-				require("wrapping").setup()
-			end,
+			-- config = function()
+			-- 	require("wrapping").setup()
+			-- end,
 		},
 		{
 			"rmagatti/goto-preview",
