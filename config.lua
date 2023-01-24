@@ -85,7 +85,7 @@ lvim.builtin.metals = {
 }
 lvim.builtin.collaborative_editing = { active = false } -- enable/disable collaborative editing
 lvim.builtin.file_browser = { active = true } -- enable/disable telescope file browser
-lvim.builtin.sniprun = { active = false } -- enable/disable sniprun
+lvim.builtin.sniprun = { active = true } -- enable/disable sniprun
 lvim.builtin.tag_provider = "symbols-outline" -- change this to use different tag providers ( symbols-outline or vista )
 lvim.builtin.editorconfig = { active = true } -- enable/disable editorconfig
 lvim.builtin.global_statusline = true -- set true to use global statusline
@@ -100,7 +100,7 @@ lvim.use_icons = true
 lvim.builtin.legendary = { active = false } -- enable/disable legendary plugin ( ctrl-p command )
 lvim.builtin.tree_provider = "neo-tree" -- can be "neo-tree" or "nvimtree" or ""
 lvim.builtin.lir.active = false
-lvim.builtin.breadcrumbs.active = false
+lvim.builtin.breadcrumbs.active = true
 lvim.builtin.illuminate.active = true
 lvim.builtin.indentlines.active = true
 lvim.builtin.noice = { active = false } -- enables noice.nvim and inc-rename.nvim
@@ -113,7 +113,7 @@ lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.borderless_cmp = true
 lvim.builtin.colored_args = true -- if true then sets up hlargs.nvim
 lvim.builtin.bigfile.active = true
-lvim.builtin.inlay_hints = { active = false } -- enable/disable inlay hints
+lvim.builtin.inlay_hints = { active = true } -- enable/disable inlay hints
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
 
 -- Additional Actions Based on Custom User Config
