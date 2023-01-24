@@ -94,7 +94,7 @@ lvim.builtin.refactoring = { active = true } -- enable to use refactoring.nvim c
 lvim.builtin.tmux_lualine = false -- use vim-tpipeline to integrate lualine and tmux
 lvim.builtin.lsp_lines = true -- enable/disable lsp_lines to display lsp virtual text below instead of behind
 if lvim.builtin.lsp_lines then
-	lvim.lsp.diagnostics.virtual_text = false
+	lvim.lsp.diagnostics.virtual_text = true
 end
 lvim.use_icons = true
 lvim.builtin.legendary = { active = false } -- enable/disable legendary plugin ( ctrl-p command )
@@ -113,7 +113,7 @@ lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.borderless_cmp = true
 lvim.builtin.colored_args = true -- if true then sets up hlargs.nvim
 lvim.builtin.bigfile.active = true
-lvim.builtin.inlay_hints = { active = true } -- enable/disable inlay hints
+lvim.builtin.inlay_hints = { active = false } -- enable/disable inlay hints
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
 
 -- Additional Actions Based on Custom User Config
