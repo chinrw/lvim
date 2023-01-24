@@ -35,7 +35,6 @@ local function set_bufferline_keymaps()
 	lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
 	lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
 	lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
-	lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 	lvim.keys.normal_mode["<Leader>1"] = ":BufferLineGoToBuffer 1<CR>"
 	lvim.keys.normal_mode["<Leader>2"] = ":BufferLineGoToBuffer 2<CR>"
 	lvim.keys.normal_mode["<Leader>3"] = ":BufferLineGoToBuffer 3<CR>"
@@ -281,15 +280,15 @@ M.config = function()
 	if lvim.builtin.mind.active then
 		M.set_mind_keymaps()
 	end
-	if lvim.builtin.persistence then
-		lvim.builtin.which_key.mappings["q"] = {
-			name = " Quit",
-			d = { "<cmd>lua require('persistence').stop()<cr> | :qa!<cr>", "Quit without saving session" },
-			l = { "<cmd>lua require('persistence').load(last=true)<cr>", "Restore last session" },
-			s = { "<cmd>lua require('persistence').load()<cr>", "Restore for current dir" },
-			q = { "<cmd>confirm q<CR>", "Quit" },
-		}
-	end
+	-- if lvim.builtin.persistence then
+	-- 	lvim.builtin.which_key.mappings["q"] = {
+	-- 		name = " Quit",
+	-- 		d = { "<cmd>lua require('persistence').stop()<cr> | :qa!<cr>", "Quit without saving session" },
+	-- 		l = { "<cmd>lua require('persistence').load(last=true)<cr>", "Restore last session" },
+	-- 		s = { "<cmd>lua require('persistence').load()<cr>", "Restore for current dir" },
+	-- 		q = { "<cmd>confirm q<CR>", "Quit" },
+	-- 	}
+	-- end
 	lvim.builtin.which_key.mappings["n"] = {
 		name = " Neogen",
 		c = { "<cmd>lua require('neogen').generate({ type = 'class'})<CR>", "Class Documentation" },
@@ -374,13 +373,6 @@ M.config = function()
 		end,
 		"Structural replace",
 	}
-
-	-- My wezterm is weird
-	-- =========================================
-	local user = vim.env.USER
-	if user and user == "abz" then
-		M.set_wezterm_keybindings()
-	end
 
 	-- Navigate merge conflict markers
 	local whk_status, whk = pcall(require, "which-key")
