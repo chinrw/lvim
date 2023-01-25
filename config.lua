@@ -113,7 +113,7 @@ lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.borderless_cmp = true
 lvim.builtin.colored_args = true -- if true then sets up hlargs.nvim
 lvim.builtin.bigfile.active = true
-lvim.builtin.inlay_hints = { active = false } -- enable/disable inlay hints
+lvim.builtin.inlay_hints = { active = true } -- enable/disable inlay hints
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
 
 -- Additional Actions Based on Custom User Config
