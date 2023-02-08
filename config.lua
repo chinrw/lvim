@@ -51,7 +51,7 @@ lvim.builtin.treesitter.auto_install = true
 
 -- Customization
 -- =========================================
-lvim.builtin.sell_your_soul_to_devil = { active = false, prada = false } -- if you want microsoft to abuse your soul
+lvim.builtin.sell_your_soul_to_devil = { active = true, prada = false } -- if you want microsoft to abuse your soul
 lvim.builtin.lastplace = { active = false } -- change to false if you are jumping to future
 lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine
 lvim.builtin.persistence = { active = false } -- change to false if you don't want persistence
