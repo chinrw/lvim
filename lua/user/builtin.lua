@@ -319,6 +319,7 @@ M.config = function()
 			error = kind.icons.error,
 		},
 	}
+  lvim.builtin.nvimtree.setup.sync_root_with_cwd = false
 	lvim.builtin.nvimtree.on_config_done = function(_)
 		lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", " Explorer" }
 	end
@@ -327,7 +328,8 @@ M.config = function()
 	-- Project
 	-- =========================================
 	lvim.builtin.project.active = true
-	lvim.builtin.project.detection_methods = { "lsp", "pattern" }
+	lvim.builtin.project.detection_methods = { "Makefile", ".git", "lsp", "pattern" }
+	lvim.builtin.project.silent_chdir = false
 
 	-- Theme
 	-- =========================================
