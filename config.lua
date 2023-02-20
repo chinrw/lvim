@@ -73,7 +73,7 @@ lvim.builtin.harpoon = { active = false } -- use the harpoon plugin
 lvim.builtin.remote_dev = { active = false } -- enable/disable remote development
 lvim.builtin.cursorline = { active = true } -- use a bit fancier cursorline
 lvim.builtin.motion_provider = "hop" -- change this to use different motion providers ( hop or leap )
-lvim.builtin.hlslens = { active = false } -- enable/disable hlslens
+lvim.builtin.hlslens = { active = true } -- enable/disable hlslens
 lvim.builtin.csv_support = true -- enable/disable csv support
 lvim.builtin.sidebar = { active = true } -- enable/disable sidebar
 lvim.builtin.task_runner = "async_tasks" -- change this to use different task runners ( "async_tasks" or "overseer" or "")
@@ -94,7 +94,7 @@ lvim.builtin.refactoring = { active = true } -- enable to use refactoring.nvim c
 lvim.builtin.tmux_lualine = false -- use vim-tpipeline to integrate lualine and tmux
 lvim.builtin.lsp_lines = true -- enable/disable lsp_lines to display lsp virtual text below instead of behind
 if lvim.builtin.lsp_lines then
-	lvim.lsp.diagnostics.virtual_text = true
+	lvim.lsp.diagnostics.virtual_text = false
 end
 lvim.use_icons = true
 lvim.builtin.legendary = { active = false } -- enable/disable legendary plugin ( ctrl-p command )
