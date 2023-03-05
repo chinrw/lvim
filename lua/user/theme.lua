@@ -239,13 +239,23 @@ M.kanagawa = function()
     dimInactive = lvim.builtin.global_statusline, -- dim inactive window `:h hl-NormalNC`
     globalStatus = lvim.builtin.global_statusline, -- adjust window separators highlight for laststatus=3
     transparent = lvim.transparent_window,
-    colors = { sumiInk1b = "#1b1b23" },
-    overrides = {
-      diffRemoved = { fg = "#E46876" },
-      NvimTreeFolderIcon = { fg = "#7e9cd8" },
-      CmpItemKindEnum = { fg = "#957FB8" },
-      ["@parameter"] = { fg = "#DCA561" },
+    -- colors = { sumiInk1b = "#1b1b23" },
+    -- colors = {                   -- add/modify theme and palette colors
+    --     palette = {}
+    --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    -- },
+    background = {               -- map the value of 'background' option to a theme
+        dark = "wave",           -- try "dragon" !
+        light = "lotus"
     },
+
+    theme = "wave",
+    -- overrides = {
+    --   diffRemoved = { fg = "#E46876" },
+    --   NvimTreeFolderIcon = { fg = "#7e9cd8" },
+    --   CmpItemKindEnum = { fg = "#957FB8" },
+    --   ["@parameter"] = { fg = "#DCA561" },
+    -- },
   }
 end
 
