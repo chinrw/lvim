@@ -262,6 +262,14 @@ M.kanagawa = function()
       dark = "wave",
       light = "lotus",
     },
+
+    theme = "wave",
+    -- overrides = {
+    --   diffRemoved = { fg = "#E46876" },
+    --   NvimTreeFolderIcon = { fg = "#7e9cd8" },
+    --   CmpItemKindEnum = { fg = "#957FB8" },
+    --   ["@parameter"] = { fg = "#DCA561" },
+    -- },
   }
 end
 
