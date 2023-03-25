@@ -134,6 +134,13 @@ if lvim.builtin.cursorline.active then
 	lvim.lsp.document_highlight = false
 end
 
+lvim.builtin.latex = {
+  view_method = "zathura", -- change to zathura if you are on linux
+  preview_exec = "/usr/bin/zathura", -- change this to zathura as well
+  rtl_support = true , -- if you want to use xelatex, it's a bit slower but works very well for RTL langs
+  active = false, -- set to true to enable
+}
+
 -- Override Lunarvim defaults
 -- =========================================
 require("user.builtin").config()
