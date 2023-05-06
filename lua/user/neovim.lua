@@ -153,22 +153,25 @@ M.config = function()
 		end,
 	})
 
-	if vim.fn.has("nvim-0.8") == 1 then
-		vim.filetype.add({
-			extension = {
-				fnl = "fennel",
-				wiki = "markdown",
-			},
-			filename = {
-				["go.sum"] = "gosum",
-				["go.mod"] = "gomod",
-			},
-			pattern = {
-				["*.tml"] = "gohtmltmpl",
-				["%.env.*"] = "sh",
-			},
-		})
-	end
+  if vim.fn.has "nvim-0.8" == 1 then
+    vim.filetype.add {
+      extension = {
+        fnl = "fennel",
+        wiki = "markdown",
+      },
+      filename = {
+        ["go.sum"] = "gosum",
+        ["go.mod"] = "gomod",
+      },
+      pattern = {
+        ["*.tml"] = "gohtmltmpl",
+        ["%.env.*"] = "sh",
+      },
+    }
+  end
+  vim.g.editorconfig = true
+
+  vim.g.markdown_fenced_languages = { "shell=bash" }
 
 	if vim.g.neovide then
 		vim.g.neovide_cursor_animation_length = 0.01
