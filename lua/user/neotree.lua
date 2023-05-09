@@ -5,6 +5,7 @@ M.config = function()
   require("neo-tree").setup {
     popup_border_style = "rounded",
     enable_diagnostics = false,
+    hide_root_node = false,
     source_selector = {
       winbar = true,
       separator_active = " ",
@@ -34,11 +35,12 @@ M.config = function()
     },
     window = {
       position = "left",
-      width = 30,
+      width = 25,
     },
     filesystem = {
       group_empty_dirs = true,
       filtered_items = {
+        follow_current_file = true,
         visible = false,
         hide_dotfiles = true,
         hide_gitignored = false,
@@ -58,7 +60,6 @@ M.config = function()
           ["l"] = "open",
         },
       },
-      follow_current_file = false,
       hijack_netrw_behavior = "open_current",
       use_libuv_file_watcher = true,
     },

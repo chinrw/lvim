@@ -382,10 +382,11 @@ M.config = function()
   lvim.builtin.terminal.execs = {}
   lvim.builtin.terminal.autochdir = true
   lvim.builtin.terminal.open_mapping = nil
+  lvim.builtin.terminal.hide_numbers = true
   lvim.builtin.terminal.size = vim.o.columns * 0.4
   lvim.builtin.terminal.on_config_done = function()
     M.create_terminal(2, "<c-\\>", 20, "float")
-    M.create_terminal(3, "<A-0>", vim.o.columns * 0.4, "vertical")
+    M.create_terminal(3, "<A-0>", 12, "horizontal")
   end
 
   -- Treesitter
