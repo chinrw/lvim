@@ -38,6 +38,9 @@ M.config = function()
       end,
     },
     {
+      "hardhackerlabs/theme-vim",
+    },
+    {
       "catppuccin/nvim",
       name = "catppuccin",
       config = function()
