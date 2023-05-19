@@ -38,6 +38,7 @@ M.config = function()
       width = 25,
     },
     filesystem = {
+      follow_current_file = true,
       group_empty_dirs = true,
       filtered_items = {
         follow_current_file = true,
