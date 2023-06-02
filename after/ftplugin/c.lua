@@ -1,9 +1,12 @@
 local opts = {}
 if lvim.builtin.cpp_programming.active then
+  local uv = require "luv"
+  local cpus = uv.available_parallelism()
+
   local clangd_flags = {
     "--background-index",
     "--fallback-style=google",
-    "-j=12",
+    "-j=" .. cpus,
     "--all-scopes-completion",
     "--pch-storage=memory",
     "--clang-tidy",
