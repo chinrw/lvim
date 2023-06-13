@@ -79,9 +79,9 @@ lvim.builtin.sidebar = { active = true } -- enable/disable sidebar
 lvim.builtin.task_runner = "async_tasks" -- change this to use different task runners ( "async_tasks" or "overseer" or "")
 lvim.builtin.winbar_provider = "navic" -- can be "filename" or "treesitter" or "navic" or ""
 lvim.builtin.metals = {
-	active = false, -- enable/disable nvim-metals for scala development
-	fallbackScalaVersion = "3.2.0-RC3",
-	serverVersion = "0.11.8",
+  active = false, -- enable/disable nvim-metals for scala development
+  fallbackScalaVersion = "3.2.0-RC3",
+  serverVersion = "0.11.12",
 }
 lvim.builtin.collaborative_editing = { active = false } -- enable/disable collaborative editing
 lvim.builtin.file_browser = { active = true } -- enable/disable telescope file browser
@@ -110,7 +110,6 @@ lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.borderless_cmp = true
 lvim.builtin.colored_args = true -- if true then sets up hlargs.nvim
 lvim.builtin.bigfile.active = true
-lvim.builtin.inlay_hints = { active = false } -- enable/disable inlay hints
 -- WARN: mind plugin is deprecated ( use with caution )
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
 
