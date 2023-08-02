@@ -1,48 +1,48 @@
 local M = {}
 
 M.set_terminal_keymaps = function()
-	local opts = { noremap = true }
-	vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+  local opts = { noremap = true }
+  vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
 M.set_hlslens_keymaps = function()
-	local opts = { noremap = true, silent = true }
-	vim.api.nvim_set_keymap(
-		"n",
-		"n",
-		"<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>",
-		opts
-	)
-	vim.api.nvim_set_keymap(
-		"n",
-		"N",
-		"<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>",
-		opts
-	)
-	vim.api.nvim_set_keymap("n", "*", "*<Cmd>lua require('hlslens').start()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "g*", "g*<Cmd>lua require('hlslens').start()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", opts)
+  local opts = { noremap = true, silent = true }
+  vim.api.nvim_set_keymap(
+    "n",
+    "n",
+    "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>",
+    opts
+  )
+  vim.api.nvim_set_keymap(
+    "n",
+    "N",
+    "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>",
+    opts
+  )
+  vim.api.nvim_set_keymap("n", "*", "*<Cmd>lua require('hlslens').start()<CR>", opts)
+  vim.api.nvim_set_keymap("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", opts)
+  vim.api.nvim_set_keymap("n", "g*", "g*<Cmd>lua require('hlslens').start()<CR>", opts)
+  vim.api.nvim_set_keymap("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", opts)
 end
 
 local function set_bufferline_keymaps()
-	lvim.keys.normal_mode["<S-x>"] = "<Cmd>lua require('user.bufferline').delete_buffer()<CR>"
-	lvim.keys.normal_mode["<S-l>"] = "<Cmd>BufferLineCycleNext<CR>"
-	lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
-	lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
-	lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
-	lvim.keys.normal_mode["<Leader>1"] = ":BufferLineGoToBuffer 1<CR>"
-	lvim.keys.normal_mode["<Leader>2"] = ":BufferLineGoToBuffer 2<CR>"
-	lvim.keys.normal_mode["<Leader>3"] = ":BufferLineGoToBuffer 3<CR>"
-	lvim.keys.normal_mode["<Leader>4"] = ":BufferLineGoToBuffer 4<CR>"
-	lvim.keys.normal_mode["<Leader>5"] = ":BufferLineGoToBuffer 5<CR>"
-	lvim.keys.normal_mode["<Leader>6"] = ":BufferLineGoToBuffer 6<CR>"
-	lvim.keys.normal_mode["<Leader>7"] = ":BufferLineGoToBuffer 7<CR>"
-	lvim.keys.normal_mode["<Leader>8"] = ":BufferLineGoToBuffer 8<CR>"
+  lvim.keys.normal_mode["<S-x>"] = "<Cmd>lua require('user.bufferline').delete_buffer()<CR>"
+  lvim.keys.normal_mode["<S-l>"] = "<Cmd>BufferLineCycleNext<CR>"
+  lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
+  lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
+  lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
+  lvim.keys.normal_mode["<Leader>1"] = ":BufferLineGoToBuffer 1<CR>"
+  lvim.keys.normal_mode["<Leader>2"] = ":BufferLineGoToBuffer 2<CR>"
+  lvim.keys.normal_mode["<Leader>3"] = ":BufferLineGoToBuffer 3<CR>"
+  lvim.keys.normal_mode["<Leader>4"] = ":BufferLineGoToBuffer 4<CR>"
+  lvim.keys.normal_mode["<Leader>5"] = ":BufferLineGoToBuffer 5<CR>"
+  lvim.keys.normal_mode["<Leader>6"] = ":BufferLineGoToBuffer 6<CR>"
+  lvim.keys.normal_mode["<Leader>7"] = ":BufferLineGoToBuffer 7<CR>"
+  lvim.keys.normal_mode["<Leader>8"] = ":BufferLineGoToBuffer 8<CR>"
 end
 
 local function set_harpoon_keymaps()
@@ -70,40 +70,40 @@ local function set_harpoon_keymaps()
 end
 
 M.set_task_runner_keymaps = function()
-	if lvim.builtin.task_runner == "async_tasks" then
-		lvim.builtin.which_key.mappings["m"] = {
-			name = " Make",
-			f = { "<cmd>AsyncTask file-build<cr>", "File" },
-			p = { "<cmd>AsyncTask project-build<cr>", "Project" },
-			e = { "<cmd>AsyncTaskEdit<cr>", "Edit" },
-			l = { "<cmd>AsyncTaskList<cr>", "List" },
-		}
-		lvim.builtin.which_key.mappings["r"] = {
-			name = " Run",
-			f = { "<cmd>AsyncTask file-run<cr>", "File" },
-			p = { "<cmd>AsyncTask project-run<cr>", "Project" },
-		}
-	elseif lvim.builtin.task_runner == "overseer" then
-		lvim.builtin.which_key.mappings["m"] = {
-			name = " Tasks",
-			l = { "<cmd>OverseerLoadBundle<CR>", "Load Bundle" },
-			s = { "<cmd>OverseerSaveBundle<CR>", "Save Bundle" },
-			n = { "<cmd>OverseerBuild<CR>", "New Task" },
-			q = { "<cmd>OverseerQuickAction<CR>", "Quick Action" },
-			f = { "<cmd>OverseerTaskAction<CR>", "Task Action" },
-			t = { "<cmd>OverseerToggle<cr>", "Toggle Output" },
-		}
-		lvim.builtin.which_key.mappings["r"] = {
-			name = " Run",
-			f = { "<cmd>OverseerRun<cr>", "Run" },
-			p = { "<cmd>OverseerRunCmd<cr>", "Run with Cmd" },
-			t = { "<cmd>OverseerToggle<cr>", "Toggle" },
-		}
-	else
-		lvim.builtin.which_key.mappings["m"] = "Make"
-		lvim.builtin.which_key.mappings["r"] = "Run"
-		require("user.autocommands").make_run()
-	end
+  if lvim.builtin.task_runner == "async_tasks" then
+    lvim.builtin.which_key.mappings["m"] = {
+      name = " Make",
+      f = { "<cmd>AsyncTask file-build<cr>", "File" },
+      p = { "<cmd>AsyncTask project-build<cr>", "Project" },
+      e = { "<cmd>AsyncTaskEdit<cr>", "Edit" },
+      l = { "<cmd>AsyncTaskList<cr>", "List" },
+    }
+    lvim.builtin.which_key.mappings["r"] = {
+      name = " Run",
+      f = { "<cmd>AsyncTask file-run<cr>", "File" },
+      p = { "<cmd>AsyncTask project-run<cr>", "Project" },
+    }
+  elseif lvim.builtin.task_runner == "overseer" then
+    lvim.builtin.which_key.mappings["m"] = {
+      name = " Tasks",
+      l = { "<cmd>OverseerLoadBundle<CR>", "Load Bundle" },
+      s = { "<cmd>OverseerSaveBundle<CR>", "Save Bundle" },
+      n = { "<cmd>OverseerBuild<CR>", "New Task" },
+      q = { "<cmd>OverseerQuickAction<CR>", "Quick Action" },
+      f = { "<cmd>OverseerTaskAction<CR>", "Task Action" },
+      t = { "<cmd>OverseerToggle<cr>", "Toggle Output" },
+    }
+    lvim.builtin.which_key.mappings["r"] = {
+      name = " Run",
+      f = { "<cmd>OverseerRun<cr>", "Run" },
+      p = { "<cmd>OverseerRunCmd<cr>", "Run with Cmd" },
+      t = { "<cmd>OverseerToggle<cr>", "Toggle" },
+    }
+  else
+    lvim.builtin.which_key.mappings["m"] = "Make"
+    lvim.builtin.which_key.mappings["r"] = "Run"
+    require("user.autocommands").make_run()
+  end
 end
 
 M.set_lsp_lines_keymap = function()
@@ -114,60 +114,60 @@ M.set_lsp_lines_keymap = function()
 end
 
 M.config = function()
-	-- Additional keybindings
-	-- =========================================
-	lvim.keys.normal_mode["<CR>"] = {
-		"<cmd>lua require('user.neovim').maximize_current_split()<CR>",
-		{ noremap = true, silent = true, nowait = true },
-	}
-	lvim.keys.insert_mode["<A-a>"] = "<ESC>ggVG<CR>"
-	lvim.keys.insert_mode["jk"] = "<ESC>:w<CR>"
-	if lvim.builtin.noice.active then
-		lvim.keys.insert_mode["<C-s>"] = function()
-			local params = vim.lsp.util.make_position_params(0, "utf-16")
-			vim.lsp.buf_request(0, "textDocument/signatureHelp", params, function(err, result, ctx)
-				require("noice.lsp").signature(err, result, ctx, {
-					trigger = true,
-				})
-			end)
-		end
-	else
-		lvim.keys.insert_mode["<C-s>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
-	end
-	lvim.keys.insert_mode["<A-s>"] =
-		"<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<CR>"
-	lvim.keys.command_mode["w!!"] = "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"
-	lvim.keys.normal_mode["]d"] = "<cmd>lua vim.diagnostic.goto_next()<cr>"
-	lvim.keys.normal_mode["[d"] = "<cmd>lua vim.diagnostic.goto_prev()<cr>"
-	lvim.keys.normal_mode["<A-a>"] = "<C-a>"
-	lvim.keys.normal_mode["<A-x>"] = "<C-x>"
-	lvim.keys.normal_mode["<C-,>"] = "<cmd>lua require('neogen').jump_next()<CR>"
-	lvim.keys.normal_mode["<C-n>i"] = { "<C-i>", { noremap = true } }
-	if vim.fn.has("mac") == 1 then
-		lvim.keys.normal_mode["gx"] =
-			[[<cmd>lua os.execute("open " .. vim.fn.shellescape(vim.fn.expand "<cWORD>")); vim.cmd "redraw!"<cr>]]
-	elseif vim.fn.has("linux") then
-		lvim.keys.normal_mode["gx"] =
-			[[<cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<cWORD>")); vim.cmd "redraw!"<cr>]]
-	end
-	if lvim.builtin.bufferline.active then
-		set_bufferline_keymaps()
-	end
-	if lvim.builtin.sidebar.active then
-		lvim.keys.normal_mode["E"] = ":SidebarNvimToggle<cr>"
-	end
-	lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
-	lvim.keys.normal_mode["Y"] = "y$"
-	lvim.keys.normal_mode["gv"] =
-		"<cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<cr>"
-	if lvim.builtin.harpoon.active then
-		set_harpoon_keymaps()
-	end
-	lvim.keys.visual_mode["<A-a>"] = "<C-a>"
-	lvim.keys.visual_mode["<A-x>"] = "<C-x>"
-	lvim.keys.visual_mode["p"] = [["_dP]]
-	lvim.keys.visual_mode["ga"] = "<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>"
-	lvim.keys.visual_mode["<leader>st"] = "<Cmd>lua require('user.telescope').grep_string_visual()<CR>"
+  -- Additional keybindings
+  -- =========================================
+  lvim.keys.normal_mode["<CR>"] = {
+    "<cmd>lua require('user.neovim').maximize_current_split()<CR>",
+    { noremap = true, silent = true, nowait = true },
+  }
+  lvim.keys.insert_mode["<A-a>"] = "<ESC>ggVG<CR>"
+  lvim.keys.insert_mode["jk"] = "<ESC>:w<CR>"
+  if lvim.builtin.noice.active then
+    lvim.keys.insert_mode["<C-s>"] = function()
+      local params = vim.lsp.util.make_position_params(0, "utf-16")
+      vim.lsp.buf_request(0, "textDocument/signatureHelp", params, function(err, result, ctx)
+        require("noice.lsp").signature(err, result, ctx, {
+          trigger = true,
+        })
+      end)
+    end
+  else
+    lvim.keys.insert_mode["<C-s>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
+  end
+  lvim.keys.insert_mode["<A-s>"] =
+    "<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<CR>"
+  lvim.keys.command_mode["w!!"] = "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"
+  lvim.keys.normal_mode["]d"] = "<cmd>lua vim.diagnostic.goto_next()<cr>"
+  lvim.keys.normal_mode["[d"] = "<cmd>lua vim.diagnostic.goto_prev()<cr>"
+  lvim.keys.normal_mode["<A-a>"] = "<C-a>"
+  lvim.keys.normal_mode["<A-x>"] = "<C-x>"
+  lvim.keys.normal_mode["<C-,>"] = "<cmd>lua require('neogen').jump_next()<CR>"
+  lvim.keys.normal_mode["<C-n>i"] = { "<C-i>", { noremap = true } }
+  if vim.fn.has "mac" == 1 then
+    lvim.keys.normal_mode["gx"] =
+      [[<cmd>lua os.execute("open " .. vim.fn.shellescape(vim.fn.expand "<cWORD>")); vim.cmd "redraw!"<cr>]]
+  elseif vim.fn.has "linux" then
+    lvim.keys.normal_mode["gx"] =
+      [[<cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<cWORD>")); vim.cmd "redraw!"<cr>]]
+  end
+  if lvim.builtin.bufferline.active then
+    set_bufferline_keymaps()
+  end
+  if lvim.builtin.sidebar.active then
+    lvim.keys.normal_mode["E"] = ":SidebarNvimToggle<cr>"
+  end
+  lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
+  lvim.keys.normal_mode["Y"] = "y$"
+  lvim.keys.normal_mode["gv"] =
+    "<cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<cr>"
+  if lvim.builtin.harpoon.active then
+    set_harpoon_keymaps()
+  end
+  lvim.keys.visual_mode["<A-a>"] = "<C-a>"
+  lvim.keys.visual_mode["<A-x>"] = "<C-x>"
+  lvim.keys.visual_mode["p"] = [["_dP]]
+  lvim.keys.visual_mode["ga"] = "<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>"
+  lvim.keys.visual_mode["<leader>st"] = "<Cmd>lua require('user.telescope').grep_string_visual()<CR>"
 
   -- WhichKey keybindings
   -- =========================================
@@ -199,7 +199,10 @@ M.config = function()
     M.set_lsp_lines_keymap()
   end
   if lvim.builtin.tree_provider == "neo-tree" then
-    lvim.builtin.which_key.mappings["e"] = { "<cmd>Neotree toggle<CR>", "󰀶 Explorer" }
+    lvim.builtin.which_key.mappings["e"] = {
+      "<cmd>Neotree toggle reveal_force_cwd<cr>",
+      "󰀶 Explorer",
+    }
   end
   lvim.builtin.which_key.mappings["F"] = {
     name = " Find",
@@ -247,10 +250,10 @@ M.config = function()
     }
   end
 
-	if status_ok_comment and cmt["toggle"] ~= nil then
-		lvim.builtin.which_key.vmappings["/"] =
-			{ "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" }
-	end
+  if status_ok_comment and cmt["toggle"] ~= nil then
+    lvim.builtin.which_key.vmappings["/"] =
+      { "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" }
+  end
 
   if lvim.builtin.noice.active then
     lvim.builtin.which_key.mappings["l"]["r"] = { ":IncRename ", "Rename" }
@@ -374,52 +377,52 @@ M.config = function()
     "Structural replace",
   }
 
-	-- Navigate merge conflict markers
-	local whk_status, whk = pcall(require, "which-key")
-	if not whk_status then
-		return
-	end
-	whk.register({
-		["]n"] = { "[[:call search('^(@@ .* @@|[<=>|]{7}[<=>|]@!)', 'W')<cr>]]", "next merge conflict" },
-		["[n"] = { "[[:call search('^(@@ .* @@|[<=>|]{7}[<=>|]@!)', 'bW')<cr>]]", "prev merge conflict" },
-	})
+  -- Navigate merge conflict markers
+  local whk_status, whk = pcall(require, "which-key")
+  if not whk_status then
+    return
+  end
+  whk.register {
+    ["]n"] = { "[[:call search('^(@@ .* @@|[<=>|]{7}[<=>|]@!)', 'W')<cr>]]", "next merge conflict" },
+    ["[n"] = { "[[:call search('^(@@ .* @@|[<=>|]{7}[<=>|]@!)', 'bW')<cr>]]", "prev merge conflict" },
+  }
 end
 
 M.set_mind_keymaps = function()
-	lvim.builtin.which_key.mappings["M"] = {
-		name = " Mind",
-		c = {
-			function()
-				require("mind").wrap_smart_project_tree_fn(function(args)
-					require("mind.commands").create_node_index(
-						args.get_tree(),
-						require("mind.node").MoveDir.INSIDE_END,
-						args.save_tree,
-						args.opts
-					)
-				end)
-			end,
-			"Create node index",
-		},
-		C = {
-			function()
-				require("mind").wrap_main_tree_fn(function(args)
-					require("mind.commands").create_node_index(
-						args.get_tree(),
-						require("mind.node").MoveDir.INSIDE_END,
-						args.save_tree,
-						args.opts
-					)
-				end)
-			end,
-			"Create node index",
-		},
-		i = {
-			function()
-				vim.notify("initializing project tree")
-				require("mind").wrap_smart_project_tree_fn(function(args)
-					local tree = args.get_tree()
-					local mind_node = require("mind.node")
+  lvim.builtin.which_key.mappings["M"] = {
+    name = " Mind",
+    c = {
+      function()
+        require("mind").wrap_smart_project_tree_fn(function(args)
+          require("mind.commands").create_node_index(
+            args.get_tree(),
+            require("mind.node").MoveDir.INSIDE_END,
+            args.save_tree,
+            args.opts
+          )
+        end)
+      end,
+      "Create node index",
+    },
+    C = {
+      function()
+        require("mind").wrap_main_tree_fn(function(args)
+          require("mind.commands").create_node_index(
+            args.get_tree(),
+            require("mind.node").MoveDir.INSIDE_END,
+            args.save_tree,
+            args.opts
+          )
+        end)
+      end,
+      "Create node index",
+    },
+    i = {
+      function()
+        vim.notify "initializing project tree"
+        require("mind").wrap_smart_project_tree_fn(function(args)
+          local tree = args.get_tree()
+          local mind_node = require "mind.node"
 
           local _, tasks = mind_node.get_node_by_path(tree, "/Tasks", true)
           tasks.icon = " "
@@ -433,71 +436,71 @@ M.set_mind_keymaps = function()
           local _, done = mind_node.get_node_by_path(tree, "/Tasks/Done", true)
           done.icon = "󱍧 "
 
-					local _, cancelled = mind_node.get_node_by_path(tree, "/Tasks/Cancelled", true)
-					cancelled.icon = " "
+          local _, cancelled = mind_node.get_node_by_path(tree, "/Tasks/Cancelled", true)
+          cancelled.icon = " "
 
-					local _, notes = mind_node.get_node_by_path(tree, "/Notes", true)
-					notes.icon = " "
+          local _, notes = mind_node.get_node_by_path(tree, "/Notes", true)
+          notes.icon = " "
 
-					args.save_tree()
-				end)
-			end,
-			"Initialize project tree",
-		},
-		l = {
-			function()
-				require("mind").wrap_smart_project_tree_fn(function(args)
-					require("mind.commands").copy_node_link_index(args.get_tree(), nil, args.opts)
-				end)
-			end,
-			"Copy node link index",
-		},
-		L = {
-			function()
-				require("mind").wrap_main_tree_fn(function(args)
-					require("mind.commands").copy_node_link_index(args.get_tree(), nil, args.opts)
-				end)
-			end,
-			"Copy node link index",
-		},
-		j = {
-			function()
-				require("mind").wrap_main_tree_fn(function(args)
-					local tree = args.get_tree()
-					local path = vim.fn.strftime("/Journal/%Y/%b/%d")
-					local _, node = require("mind.node").get_node_by_path(tree, path, true)
+          args.save_tree()
+        end)
+      end,
+      "Initialize project tree",
+    },
+    l = {
+      function()
+        require("mind").wrap_smart_project_tree_fn(function(args)
+          require("mind.commands").copy_node_link_index(args.get_tree(), nil, args.opts)
+        end)
+      end,
+      "Copy node link index",
+    },
+    L = {
+      function()
+        require("mind").wrap_main_tree_fn(function(args)
+          require("mind.commands").copy_node_link_index(args.get_tree(), nil, args.opts)
+        end)
+      end,
+      "Copy node link index",
+    },
+    j = {
+      function()
+        require("mind").wrap_main_tree_fn(function(args)
+          local tree = args.get_tree()
+          local path = vim.fn.strftime "/Journal/%Y/%b/%d"
+          local _, node = require("mind.node").get_node_by_path(tree, path, true)
 
-					if node == nil then
-						vim.notify("cannot open journal 🙁", vim.log.levels.WARN)
-						return
-					end
+          if node == nil then
+            vim.notify("cannot open journal 🙁", vim.log.levels.WARN)
+            return
+          end
 
-					require("mind.commands").open_data(tree, node, args.data_dir, args.save_tree, args.opts)
-					args.save_tree()
-				end)
-			end,
-			"Open journal",
-		},
-		M = { "<cmd>MindOpenMain<CR>", "Open main tree" },
-		z = { "<cmd>MindClose<CR>", "Close" },
-		m = { "<cmd>MindOpenSmartProject<CR>", "Open smart project tree" },
-		s = {
-			function()
-				require("mind").wrap_smart_project_tree_fn(function(args)
-					require("mind.commands").open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
-				end)
-			end,
-			"Open data index",
-		},
-		S = {
-			function()
-				require("mind").wrap_main_tree_fn(function(args)
-					require("mind.commands").open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
-				end)
-			end,
-			"Open data index",
-		},
-	}
+          require("mind.commands").open_data(tree, node, args.data_dir, args.save_tree, args.opts)
+          args.save_tree()
+        end)
+      end,
+      "Open journal",
+    },
+    M = { "<cmd>MindOpenMain<CR>", "Open main tree" },
+    z = { "<cmd>MindClose<CR>", "Close" },
+    m = { "<cmd>MindOpenSmartProject<CR>", "Open smart project tree" },
+    s = {
+      function()
+        require("mind").wrap_smart_project_tree_fn(function(args)
+          require("mind.commands").open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
+        end)
+      end,
+      "Open data index",
+    },
+    S = {
+      function()
+        require("mind").wrap_main_tree_fn(function(args)
+          require("mind.commands").open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
+        end)
+      end,
+      "Open data index",
+    },
+  }
 end
 
 return M

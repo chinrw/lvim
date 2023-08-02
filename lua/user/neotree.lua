@@ -16,10 +16,6 @@ M.config = function()
           display_name = " 󰉓 Files ",
         },
         {
-          source = "buffers",
-          display_name = " 󰈙 Buffers ",
-        },
-        {
           source = "git_status",
           display_name = " 󰊢 Git ",
         },
@@ -32,7 +28,7 @@ M.config = function()
     },
     default_component_configs = {
       indent = {
-        padding = 0,
+        padding = 1,
         with_expanders = false,
       },
       icon = {
@@ -52,7 +48,12 @@ M.config = function()
       width = 25,
     },
     filesystem = {
-      follow_current_file = true,
+      follow_current_file = {
+        enabled = true, -- This will find and focus the file in the active buffer every time
+        --               -- the current file is changed while the tree is open.
+        leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+      },
+      bind_to_cwd = false,
       group_empty_dirs = true,
       filtered_items = {
         follow_current_file = true,

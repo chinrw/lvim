@@ -95,7 +95,7 @@ lvim.builtin.tmux_lualine = false -- use vim-tpipeline to integrate lualine and 
 lvim.builtin.lsp_lines = true -- enable/disable lsp_lines to display lsp virtual text below instead of behind
 vim.use_icons = true
 lvim.builtin.legendary = { active = false } -- enable/disable legendary plugin ( ctrl-p command )
-lvim.builtin.tree_provider = "nvimtree" -- can be "neo-tree" or "nvimtree" or ""
+lvim.builtin.tree_provider = "neo-tree" -- can be "neo-tree" or "nvimtree" or ""
 lvim.builtin.lir.active = false
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.illuminate.active = true
