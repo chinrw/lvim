@@ -1,5 +1,18 @@
 local M = {}
 
+-- HACK: for some reason, the alt keybindings are not working in my wezterm
+M.set_wezterm_keybindings = function()
+  lvim.keys.insert_mode["å"] = lvim.keys.insert_mode["<A-a>"]
+  lvim.keys.insert_mode["ß"] = lvim.keys.insert_mode["<A-s>"]
+  lvim.keys.insert_mode["´"] = lvim.keys.insert_mode["<A-e>"]
+  lvim.keys.insert_mode["∆"] = lvim.keys.insert_mode["<A-j>"]
+  lvim.keys.insert_mode["˚"] = lvim.keys.insert_mode["<A-k>"]
+  lvim.keys.normal_mode["å"] = lvim.keys.normal_mode["<A-a>"]
+  lvim.keys.normal_mode["≈"] = lvim.keys.normal_mode["<A-x>"]
+  lvim.keys.visual_mode["å"] = lvim.keys.visual_mode["<A-a>"]
+  lvim.keys.visual_mode["≈"] = lvim.keys.visual_mode["<A-x>"]
+end
+
 M.set_terminal_keymaps = function()
   local opts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
@@ -35,14 +48,38 @@ local function set_bufferline_keymaps()
   lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
   lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
   lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
-  lvim.keys.normal_mode["<Leader>1"] = ":BufferLineGoToBuffer 1<CR>"
-  lvim.keys.normal_mode["<Leader>2"] = ":BufferLineGoToBuffer 2<CR>"
-  lvim.keys.normal_mode["<Leader>3"] = ":BufferLineGoToBuffer 3<CR>"
-  lvim.keys.normal_mode["<Leader>4"] = ":BufferLineGoToBuffer 4<CR>"
-  lvim.keys.normal_mode["<Leader>5"] = ":BufferLineGoToBuffer 5<CR>"
-  lvim.keys.normal_mode["<Leader>6"] = ":BufferLineGoToBuffer 6<CR>"
-  lvim.keys.normal_mode["<Leader>7"] = ":BufferLineGoToBuffer 7<CR>"
-  lvim.keys.normal_mode["<Leader>8"] = ":BufferLineGoToBuffer 8<CR>"
+  lvim.builtin.which_key.mappings["c"] = {}
+  lvim.builtin.which_key.mappings.b = {
+    name = " Buffer",
+    ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
+    ["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
+    ["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
+    ["4"] = { "<Cmd>BufferLineGoToBuffer 4<CR>", "goto 4" },
+    ["5"] = { "<Cmd>BufferLineGoToBuffer 5<CR>", "goto 5" },
+    ["6"] = { "<Cmd>BufferLineGoToBuffer 6<CR>", "goto 6" },
+    ["7"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "goto 7" },
+    ["8"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "goto 8" },
+    ["9"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "goto 9" },
+    c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
+    p = { "<Cmd>BufferLineTogglePin<CR>", "toggle pin" },
+    s = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
+    t = { "<Cmd>BufferLineGroupToggle docs<CR>", "toggle groups" },
+    f = { "<cmd>FzfLua buffers<cr>", "Find" },
+    b = { "<cmd>b#<cr>", "Previous" },
+    h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+    l = {
+      "<cmd>BufferLineCloseRight<cr>",
+      "Close all to the right",
+    },
+    D = {
+      "<cmd>BufferLineSortByDirectory<cr>",
+      "Sort by directory",
+    },
+    L = {
+      "<cmd>BufferLineSortByExtension<cr>",
+      "Sort by language",
+    },
+  }
 end
 
 local function set_harpoon_keymaps()
@@ -134,8 +171,8 @@ M.config = function()
   else
     lvim.keys.insert_mode["<C-s>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
   end
-  lvim.keys.insert_mode["<A-s>"] =
-    "<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<CR>"
+  -- lvim.keys.insert_mode["<A-s>"] =
+  --   "<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<CR>"
   lvim.keys.command_mode["w!!"] = "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"
   lvim.keys.normal_mode["]d"] = "<cmd>lua vim.diagnostic.goto_next()<cr>"
   lvim.keys.normal_mode["[d"] = "<cmd>lua vim.diagnostic.goto_prev()<cr>"
@@ -167,7 +204,7 @@ M.config = function()
   lvim.keys.visual_mode["<A-x>"] = "<C-x>"
   lvim.keys.visual_mode["p"] = [["_dP]]
   lvim.keys.visual_mode["ga"] = "<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>"
-  lvim.keys.visual_mode["<leader>st"] = "<Cmd>lua require('user.telescope').grep_string_visual()<CR>"
+  lvim.keys.visual_mode["<leader>st"] = "<Cmd>FzfLua tags_grep_cword<CR>"
 
   -- WhichKey keybindings
   -- =========================================
@@ -190,7 +227,7 @@ M.config = function()
     lvim.builtin.which_key.mappings["gd"] = { "<cmd>DiffviewOpen<cr>", "diffview: diff HEAD" }
     lvim.builtin.which_key.mappings["gh"] = { "<cmd>DiffviewFileHistory<cr>", "diffview: filehistory" }
   else
-    lvim.builtin.which_key.mappings["gh"] = { "<cmd>Telescope git_bcommits<cr>", "file history" }
+    lvim.builtin.which_key.mappings["gh"] = { "<cmd>FzfLua git_bcommits<cr>", "file history" }
   end
   if lvim.builtin.cheat.active then
     lvim.builtin.which_key.mappings["?"] = { "<cmd>Cheat<CR>", " Cheat.sh" }
@@ -206,16 +243,16 @@ M.config = function()
   end
   lvim.builtin.which_key.mappings["F"] = {
     name = " Find",
-    b = { "<cmd>lua require('user.telescope').builtin()<cr>", "Builtin" },
-    f = { "<cmd>lua require('user.telescope').curbuf()<cr>", "Current Buffer" },
-    g = { "<cmd>lua require('user.telescope').git_files()<cr>", "Git Files" },
-    i = { "<cmd>lua require('user.telescope').installed_plugins()<cr>", "Installed Plugins" },
+    b = { "<cmd>FzfLua builtin<cr>", "Builtin" },
+    f = { "<cmd>FzfLua grep_curbuf<cr>", "Current Buffer" },
+    g = { "<cmd>FzfLua git_files<cr>", "Git Files" },
+    -- i = { "<cmd>lua require('user.telescope').installed_plugins()<cr>", "Installed Plugins" },
     l = {
-      "<cmd>lua require('telescope.builtin').resume()<cr>",
+      "<cmd>FzfLua resume<cr>",
       "Last Search",
     },
-    p = { "<cmd>lua require('user.telescope').project_search()<cr>", "Project" },
-    s = { "<cmd>lua require('user.telescope').git_status()<cr>", "Git Status" },
+    p = { "<cmd>FzfLua grep_project<cr>", "Project" },
+    s = { "<cmd>FzfLua git_status<cr>", "Git Status" },
     z = { "<cmd>lua require('user.telescope').search_only_certain_files()<cr>", "Certain Filetype" },
   }
   if lvim.builtin.legendary.active then
@@ -224,9 +261,9 @@ M.config = function()
     lvim.keys.normal_mode["<c-P>"] = "<cmd>lua require('legendary').find()<cr>"
   end
 
-  if lvim.builtin.file_browser.active then
-    lvim.builtin.which_key.mappings["se"] = { "<cmd>Telescope file_browser<cr>", "File Browser" }
-  end
+  -- if lvim.builtin.file_browser.active then
+  lvim.builtin.which_key.mappings["se"] = { "<cmd>FzfLua files<cr>", "File Browser" }
+  -- end
   lvim.builtin.which_key.mappings["H"] = "󰞋 Help"
   lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", "󰸱 No Highlight" }
   lvim.builtin.which_key.mappings.g.name = " Git"
@@ -235,7 +272,8 @@ M.config = function()
   end
   lvim.builtin.which_key.mappings.l.name = " LSP"
   lvim.builtin.which_key.mappings["f"] = {
-    require("user.telescope").find_project_files,
+    -- require("user.telescope").find_project_files,
+    "<cmd>FzfLua git_files<cr>",
     " Find File",
   }
   local ok, _ = pcall(require, "vim.diagnostic")
@@ -299,7 +337,7 @@ M.config = function()
     t = { "<cmd>lua require('neogen').generate({ type = 'type'})<CR>", "Type Documentation" },
     F = { "<cmd>lua require('neogen').generate({ type = 'file'})<CR>", "File Documentation" },
   }
-  lvim.builtin.which_key.mappings["N"] = { "<cmd>Telescope file_create<CR>", " Create new file" }
+  -- lvim.builtin.which_key.mappings["N"] = { "<cmd>Telescope file_create<CR>", " Create new file" }
   if lvim.builtin.tag_provider == "symbols-outline" then
     lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" }
   elseif lvim.builtin.tag_provider == "vista" then
@@ -307,7 +345,7 @@ M.config = function()
   end
   lvim.builtin.which_key.mappings.L.name = " LunarVim"
   lvim.builtin.which_key.mappings.p.name = " Lazy"
-  lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", " Projects" }
+  lvim.builtin.which_key.mappings["P"] = { "<cmd>lua require('user.keybindings').fzf_projects()<CR>", " Projects" }
   lvim.builtin.which_key.mappings["R"] = {
     name = " Replace",
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Current Buffer" },
@@ -321,8 +359,13 @@ M.config = function()
     },
   }
   lvim.builtin.which_key.mappings.s.name = " Search"
+  lvim.builtin.which_key.mappings.s.t = {
+    "<cmd>FzfLua grep_project<cr>",
+    "Text",
+  }
   lvim.builtin.which_key.mappings["ss"] = {
-    "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+    -- "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+    "<cmd>FzfLua live_grep_native<cr>",
     "String",
   }
   if lvim.builtin.test_runner.active then

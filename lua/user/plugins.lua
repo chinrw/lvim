@@ -442,9 +442,6 @@ M.config = function()
       end,
       enabled = lvim.builtin.custom_web_devicons or not lvim.use_icons,
     },
-    {
-      "nvim-telescope/telescope-live-grep-args.nvim",
-    },
     { "mtdl9/vim-log-highlighting", ft = { "text", "log" } },
     {
       "yamatsum/nvim-cursorline",
@@ -768,76 +765,19 @@ M.config = function()
       enabled = lvim.builtin.mind.active,
     },
     {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
-    { "matveyt/neoclip" },
-    {
-      "simrat39/symbols-outline.nvim",
+      "ibhagwan/fzf-lua",
       config = function()
-        require("symbols-outline").setup()
+        -- calling `setup` is optional for customization
+        local ff = require "user.fzf"
+        require("fzf-lua").setup(vim.tbl_deep_extend("keep", vim.deepcopy(ff.active_profile), ff.default_opts))
       end,
+      enabled = not lvim.builtin.telescope.active,
     },
     {
-      "f-person/git-blame.nvim",
-      event = "BufRead",
-      config = function()
-        vim.cmd "highlight default link gitblame SpecialComment"
-        vim.g.gitblame_enabled = 0
-      end,
-    },
-    {
-      "phaazon/hop.nvim",
+      "folke/flash.nvim",
       event = "VeryLazy",
-      config = function()
-        require("user.hop").config()
-      end,
-    },
-    {
-      "lambdalisue/suda.vim",
-    },
-    {
-      "andrewferrier/wrapping.nvim",
-      -- config = function()
-      -- 	require("wrapping").setup()
-      -- end,
-    },
-    {
-      "rmagatti/goto-preview",
-      config = function()
-        require("goto-preview").setup {
-          width = 120, -- Width of the floating window
-          height = 25, -- Height of the floating window
-          default_mappings = false, -- Bind default mappings
-          debug = false, -- Print debug information
-          opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
-          post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
-          -- You can use "default_mappings = true" setup option
-          -- Or explicitly set keybindings
-          -- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
-          -- vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
-          -- vim.cmd("nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>")
-        }
-      end,
-    },
-    {
-      "ethanholz/nvim-lastplace",
-      event = "BufRead",
-      config = function()
-        require("nvim-lastplace").setup {
-          lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-          lastplace_ignore_filetype = {
-            "gitcommit",
-            "gitrebase",
-            "svn",
-            "hgcommit",
-          },
-          lastplace_open_folds = true,
-        }
-      end,
-    },
-    {
-      "nvim-lua/plenary.nvim",
+      keys = require("user.flash").keys,
+      enabled = lvim.builtin.motion_provider == "flash",
     },
   }
 end

@@ -15,8 +15,9 @@ second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
 # ... with the exception of these:
 exceptions:
   - ACID
-  - ACK
+  - ACG
   - ACL
+  - ACK
   - AJAX
   - ANSI
   - API
@@ -28,6 +29,7 @@ exceptions:
   - ASN
   - AWS
   - BAR
+  - BASLR
   - BGP
   - BSD
   - CAS
@@ -59,6 +61,7 @@ exceptions:
   - CVE
   - CVS
   - DAG
+  - DAO
   - DAST
   - DDOS
   - DEP
@@ -124,16 +127,20 @@ exceptions:
   - IID
   - IMAP
   - IOPS
+  - IPFS
   - IRC
   - IRQL
   - ISAC
   - ISN
   - ISO
+  - IUM
   - JPEG
   - JPG
   - JSON
   - JVM
   - JWT
+  - KASLR
+  - KMCI
   - KVM
   - LAN
   - LDAP
@@ -146,19 +153,23 @@ exceptions:
   - LUKS
   - MAC
   - MBR
+  - MDL
   - MFA
   - MIME
   - MIT
+  - MMIO
   - MSSQL
   - MVC
   - NAT
   - NDA
   - NFS
+  - NFT
   - NGINX
   - NIST
   - NOTE
   - NPM
   - NTP
+  - NVRAM
   - ONLY
   - OSI
   - OSS
@@ -202,6 +213,7 @@ exceptions:
   - RSA
   - RSS
   - RST
+  - RVA
   - RVM
   - SAAS
   - SAML
@@ -213,17 +225,22 @@ exceptions:
   - SCP
   - SCSS
   - SDK
+  - SDDL
   - SDN
   - SEH
+  - SEHOP
   - SELF
   - SEO
   - SET
   - SFTP
   - SHA
   - SIEM
+  - SIP
   - SLA
   - SLSA
   - SMB
+  - SMAP
+  - SMEP
   - SMS
   - SMTP
   - SOAP
@@ -247,6 +264,7 @@ exceptions:
   - SYN
   - TBA
   - TBD
+  - TCC
   - TCP
   - TEE
   - TIFF
@@ -266,12 +284,14 @@ exceptions:
   - UTC
   - UTF
   - UUID
+  - VBS
   - VCS
   - VLAN
   - VNC
   - VPC
   - VPN
   - WAF
+  - WHQL
   - WIP
   - WSDL
   - WSL
